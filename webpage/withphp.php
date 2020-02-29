@@ -1,12 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" >
 	<head>
 		<title>Music Viewer</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link href="viewer.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
+
 		<div id="header">
 
 			<h1>190M Music Playlist Viewer</h1>
@@ -15,7 +16,22 @@
 
 
 		<div id="listarea">
+			<?php 
+			$mp3item=glob("songs/*.mp3");
+			$text= glob("songs/*.txt");
+			?>
+
 			<ul id="musiclist">
+				<?php foreach($mp3item as $mp3){
+				?>
+				<li><?=$mp3?></li>
+			<?php }?>
+			<?php foreach($text as $file){
+				?>
+				<li><?=$file?></li>
+			<?php }?>
+
+
 				<li class="mp3item">
 					<a href="songs/Be More.mp3">Be More.mp3</a>
 					(5438375 b)
@@ -44,6 +60,7 @@
 				<li class="playlistitem">
 					<a href="music.php?playlist=playlist.txt">playlist.txt</a>
 				</li>
+				<
 			</ul>
 		</div>
 	</body>
